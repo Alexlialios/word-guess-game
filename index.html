@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Are you Psychic???</title>
+</head>
+<body>
+        <div id="game">
+            
+    <h1><p>Are you Psychic???</p> </h1>
+    <p> Try to guess the letter I'm thinking of</p>
+    <p>Wins:0</p>
+    <p>Losses:0</p>
+    <p>Guessessofar:</p>
+    <p>Guessesremaining</p>
+    </div>
+    <script type="text/javascript">
+    var Wins = 0;
+    var Losses =0;
+    var Guessesremaining =10;
+    var guessesSoFar =[];
+    var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; 
+    
+   document.onkeyup =function(event)
+   {var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+   var computerGuess = computerChoices[Math.floor(Math.random()*computerChoices.length)];
+   guessesSoFar.push(userGuess);
+   if(userGuess== computerGuess) {
+   wins++;
+   alert("you did it!");
+   guessesLeft = 10;
+   guessesSoFar.length = 0;}
+   
+
+   else if (Guessesremaining== 0){
+   losses++;
+    alert("too bad, you can always try again!");
+    guessesLeft =10;
+    guessesSoFar.length =0;}
+
+    else if (userGuess !== computerGuess){
+    {guessesLeft--;}} 
+    var html = "<h1>Are you Psychic???</h1>"+ "<p> Try to guess the letter I'm thinking of</p>"+"Wins:" + wins + "</p>" +
+    "<p>Losses:"+ losses +"</p>" + "<p>Guesses Left: " + guessesLeft + "</p>" + "<p>Guesses so far:" +guessesSoFar +"</p>";
+    
+    document.querySelector('#game').innerHTML = html;}
+
+    </script>
+    </body> 
+    </html>
